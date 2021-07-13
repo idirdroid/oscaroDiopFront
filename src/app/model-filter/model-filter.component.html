@@ -1,0 +1,12 @@
+<p>model-filter works!</p>
+<form [formGroup]="filterForm">
+  <select formControlName="brandSelect" (change)="onBrandChange()">
+    <option *ngFor="let brand of brandList" value="{{brand.id}}">{{brand.name}}</option>
+  </select>
+
+  <select formeControlName="modelSelect">
+    <option *ngFor="let model of modelList">{{model.name}}</option>
+  </select>
+</form>
+
+<a routerLink="/clientlistpart">Pièces</a>

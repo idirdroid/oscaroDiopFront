@@ -12,7 +12,7 @@ import {Output, EventEmitter} from '@angular/core';
   styleUrls: ['./model-filter.component.css']
 })
 export class ModelFilterComponent implements OnInit {
-//decalaration d'un object qui gére les événements
+//decalaration d'un Output qui gére les événements (Emission d'évenements vers le parent)
   @Output() newModelIdEvent = new EventEmitter<number>();
 
   //la valeur qui va etre transmise (emettre) vers Parent par "$event"
@@ -24,8 +24,8 @@ export class ModelFilterComponent implements OnInit {
   }
 
   filterForm = this.formBuilder.group({
-    brandSelect: '',
-    modelSelect: ''
+    brandSelect: 0,
+    modelSelect: 0
   })
 
   brandList: Brand[] = [];

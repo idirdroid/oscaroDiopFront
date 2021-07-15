@@ -1,8 +1,12 @@
+import {Brand} from "./brand";
+
 export interface Model{
-  modelId: number;
-  modelName: String;
-  modelCreationdaDate : Date;
-  modelDisable: boolean;
+  id: number;
+  name: String;
+  addDate : Date;
+  disable: boolean;
+  year: number;
+  brand: Brand;
 
 
 }

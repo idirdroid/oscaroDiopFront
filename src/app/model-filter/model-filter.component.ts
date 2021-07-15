@@ -20,9 +20,9 @@ export class ModelFilterComponent implements OnInit {
     modelSelect: ''
   })
 
-  brandList: any | undefined;
-  //modelList: Model[] = [];
-  modelList: any | undefined;
+  brandList: Brand[] = [];
+  modelList: Model[] = [];
+
 
 
   ngOnInit(): void {

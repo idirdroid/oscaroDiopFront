@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpClientModule} from "@angular/common/http";
-
+import {Brand} from "./brand";
+import {Model} from "./model";
+import {Observable} from "rxjs";
 @Injectable({
   providedIn: 'root'
 })
@@ -9,11 +11,11 @@ baseUrl='http://localhost:8080/admin/'
 
   constructor(private http:HttpClient) { }
 
-  getAllBrand() {
-    return this.http.get(this.baseUrl+'brand');
+  getAllBrand():Observable<Brand[]> {
+    return this.http.get<Brand[]>(this.baseUrl+'brand');
   }
 
-  getModelByBrand(idBrand: number) {
-    return this.http.get(this.baseUrl+'models/' + idBrand);
+  getModelByBrand(idBrand: number): Observable<Model[]> {
+    return this.http.get<Model[]>(this.baseUrl+'models/' + idBrand);
   }
 }

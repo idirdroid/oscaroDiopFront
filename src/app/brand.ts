@@ -1,7 +1,7 @@
 export interface Brand{
-  brandId: number;
-  brandName: string;
-  brandCreationDate: Date;
-  brandDisable: boolean;
+  id: number;
+  name: string;
+  addDate: Date;
+  disable: boolean;
 
 }

@@ -9,6 +9,8 @@ export class ClientComponent implements OnInit {
   printList : boolean = true;
   constructor() { }
 
+  modelId=200;
+
   ngOnInit(): void {
 
   }

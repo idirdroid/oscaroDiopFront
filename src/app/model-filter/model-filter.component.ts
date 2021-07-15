@@ -3,6 +3,7 @@ import {FormBuilder} from "@angular/forms";
 import {ClientService} from "../client.service";
 import {Brand} from "../brand";
 import {Model} from "../model";
+import {Output, EventEmitter} from '@angular/core';
 
 
 @Component({
@@ -11,6 +12,12 @@ import {Model} from "../model";
   styleUrls: ['./model-filter.component.css']
 })
 export class ModelFilterComponent implements OnInit {
+
+  @Output() newModelIdEvent = new EventEmitter<number>();
+
+  addNewItem(value: string) {
+    this.newModelIdEvent.emit(Number(value));
+  }
 
   constructor(private formBuilder: FormBuilder, private clientService: ClientService) {
   }
@@ -24,13 +31,11 @@ export class ModelFilterComponent implements OnInit {
   modelList: Model[] = [];
 
 
-
   ngOnInit(): void {
 
     this.clientService.getAllBrand().subscribe(result => {
       this.brandList = result;
     });
-
   }
 
   onBrandChange() {

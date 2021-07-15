@@ -1,1 +1,25 @@
-<p id="para">client-list-part works!</p>
+<h2>ceci est l'id : {{modelId}}</h2>
+<table>
+  <thead>
+  <tr>
+    <th>Date Ajout</th>
+    <th>Description</th>
+    <th>Prix public</th>
+    <th>Reference</th>
+    <th>Serial Number</th>
+    <th>Stock</th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <tr *ngFor="let part of partList">
+    <td>{{part.addDate | date: "dd/MM/YYYY"}}</td>
+    <td>{{part.description}}</td>
+    <td>{{part.publicPrice}}</td>
+    <td>{{part.reference}}</td>
+    <td>{{part.serialNumber}}</td>
+    <td>{{part.stock}}</td>
+  </tr>
+  </tbody>
+
+</table>

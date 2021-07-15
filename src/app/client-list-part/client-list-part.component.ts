@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {ClientService} from "../client.service";
 import {Part} from "../part";
 
@@ -8,18 +8,21 @@ import {Part} from "../part";
   styleUrls: ['./client-list-part.component.css']
 })
 export class ClientListPartComponent implements OnInit {
-partList : Part[]=[];
-  constructor(private clientService: ClientService) { }
+  partList: Part[] = [];
+
+  constructor(private clientService: ClientService) {
+  }
+
+  @Input() modelId=0;
 
   ngOnInit(): void {
 
-  this.getPartListByModel(10);
+    this.getPartListByModel(1);
   }
 
-  public getPartListByModel( modelId: number){
-    this.clientService.getAllPartByModelId(modelId).subscribe(result=>
-    {
-      this.partList=result;
+  public getPartListByModel(modelId: number) {
+    this.clientService.getAllPartByModelId(modelId).subscribe(result => {
+      this.partList = result;
       console.log(this.partList);
     });
 

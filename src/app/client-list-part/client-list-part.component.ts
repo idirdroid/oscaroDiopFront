@@ -1,6 +1,7 @@
 import {Component, Input, OnInit, OnChanges} from '@angular/core';
 import {ClientService} from "../client.service";
 import {Part} from "../part";
+import {FormBuilder} from "@angular/forms";
 
 
 @Component({
@@ -11,7 +12,7 @@ import {Part} from "../part";
 export class ClientListPartComponent implements OnChanges, OnInit {
   partList: Part[] = [];
 
-  constructor(private clientService: ClientService) {
+  constructor(private clientService: ClientService, private formBuilder: FormBuilder) {
   }
 
   @Input() modelId: number = 0;
@@ -20,7 +21,13 @@ export class ClientListPartComponent implements OnChanges, OnInit {
     //this.getPartListByModel(this.modelId);
   }
 
+  filterPartForm=this.formBuilder.group({
+    groupPartSelect:0,
+    typePartSelect:0
+  });
+
   //Déclanchée lors d'un changement sur le composant (attributs / Input)
+
   ngOnChanges() {
     if(this.modelId!=0) {
       this.getPartListByModel(this.modelId);
@@ -38,4 +45,7 @@ export class ClientListPartComponent implements OnChanges, OnInit {
 
   }
 
+  onGroupPartChange() {
+   this.clientService.getAllTypePartByGroupId(this.filterPartForm.get("groupPartSelect")?.value);
+  }
 }

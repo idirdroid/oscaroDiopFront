@@ -4,6 +4,7 @@ import {Brand} from "./brand";
 import {Model} from "./model";
 import {Observable} from "rxjs";
 import {Part} from "./part";
+import {PartType} from "./partType";
 @Injectable({
   providedIn: 'root'
 })
@@ -22,5 +23,10 @@ baseUrl='http://localhost:8080/admin/'
 
   getAllPartByModelId(modelId: number) {
     return this.http.get< Part[]>(this.baseUrl+'parts/getPartsByModel/'+modelId)
+  }
+
+
+  getAllTypePartByGroupId(value: any) {
+  //return this.http.get <PartType []>(this.baseUrl)
   }
 }

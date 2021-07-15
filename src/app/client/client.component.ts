@@ -9,7 +9,8 @@ export class ClientComponent implements OnInit {
   printList : boolean = true;
   constructor() { }
 
-    modelId = 200;
+  //declaration et initialisation;
+    modelId:number = 0;
 
   //methode qui s'execute quand l'evenement arrive
   initModelId(modelIdEvent: number){

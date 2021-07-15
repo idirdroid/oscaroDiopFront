@@ -22,7 +22,10 @@ export class ClientListPartComponent implements OnChanges, OnInit {
 
   //Déclanchée lors d'un changement sur le composant (attributs / Input)
   ngOnChanges() {
-    this.getPartListByModel(this.modelId);
+    if(this.modelId!=0) {
+      this.getPartListByModel(this.modelId);
+      console.log("je rentre dans les parts");
+    }
   }
 
   public getPartListByModel(modelId: number) {

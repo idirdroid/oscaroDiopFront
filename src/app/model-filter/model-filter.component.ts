@@ -24,7 +24,7 @@ export class ModelFilterComponent implements OnInit {
   }
 
   filterForm = this.formBuilder.group({
-    brandSelect: 0,
+    brandSelect: 0, //la value  de l'option du formulaire
     modelSelect: 0
   })
 
@@ -40,9 +40,12 @@ export class ModelFilterComponent implements OnInit {
   }
 
   onBrandChange() {
-    this.clientService.getModelByBrand(this.filterForm.get('brandSelect')?.value).subscribe(result => {
-      this.modelList = result;
-    });
-    console.log(this.filterForm.get('brandSelect')?.value)
+    if (this.filterForm.get('brandSelect')?.value != 0) {
+      this.clientService.getModelByBrand(this.filterForm.get('brandSelect')?.value).subscribe(result => {
+        this.modelList = result;
+      });
+      console.log("coucou : "+ this.filterForm.get('brandSelect')?.value)
+    }
+
   }
 }

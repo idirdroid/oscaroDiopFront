@@ -11,6 +11,7 @@ export class ClientComponent implements OnInit {
 
     modelId = 200;
 
+  //methode qui s'execute quand l'evenement arrive
   initModelId(modelIdEvent: number){
     this.modelId=Number(modelIdEvent);
     console.log('Model ID: ' + this.modelId)

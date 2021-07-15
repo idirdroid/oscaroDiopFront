@@ -4,6 +4,7 @@
     <option *ngFor="let brand of brandList" value="{{brand.id}}">{{brand.name | uppercase}}</option>
   </select>
 
+<!--  on recupére le modelId avec "modelSelect.value" dans le composant Enfant-->
   <select formeControlName="modelSelect" (change)="selectedModelId(modelSelect.value)" #modelSelect>
     <option *ngFor="let model of modelList" value="{{model.id}}">{{model.name | uppercase}} {{model.year}}</option>
   </select>

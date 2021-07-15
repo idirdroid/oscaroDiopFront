@@ -12,9 +12,10 @@ import {Output, EventEmitter} from '@angular/core';
   styleUrls: ['./model-filter.component.css']
 })
 export class ModelFilterComponent implements OnInit {
-
+//decalaration d'un object qui gére les événements
   @Output() newModelIdEvent = new EventEmitter<number>();
 
+  //la valeur qui va etre transmise (emettre) vers Parent par "$event"
   selectedModelId(value: string) {
     this.newModelIdEvent.emit(Number(value));
   }

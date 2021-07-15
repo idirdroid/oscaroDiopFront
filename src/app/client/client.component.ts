@@ -9,7 +9,13 @@ export class ClientComponent implements OnInit {
   printList : boolean = true;
   constructor() { }
 
-  modelId=200;
+    modelId = 200;
+
+  initModelId(modelIdEvent: number){
+    this.modelId=Number(modelIdEvent);
+    console.log('Model ID: ' + this.modelId)
+  }
+
 
   ngOnInit(): void {
 

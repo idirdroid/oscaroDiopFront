@@ -4,8 +4,8 @@
     <option *ngFor="let brand of brandList" value="{{brand.id}}">{{brand.name | uppercase}}</option>
   </select>
 
-  <select formeControlName="modelSelect" (change)="addNewItem(modelSelect.value)" #modelSelect>
-    <option *ngFor="let model of modelList">{{model.name | uppercase}} {{model.year}}</option>
+  <select formeControlName="modelSelect" (change)="selectedModelId(modelSelect.value)" #modelSelect>
+    <option *ngFor="let model of modelList" value="{{model.id}}">{{model.name | uppercase}} {{model.year}}</option>
   </select>
 </form>
 

@@ -15,7 +15,7 @@ export class ModelFilterComponent implements OnInit {
 
   @Output() newModelIdEvent = new EventEmitter<number>();
 
-  addNewItem(value: string) {
+  selectedModelId(value: string) {
     this.newModelIdEvent.emit(Number(value));
   }
 

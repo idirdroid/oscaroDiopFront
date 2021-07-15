@@ -27,6 +27,8 @@ export class ClientListPartComponent implements OnChanges, OnInit {
   });
 
   //Déclanchée lors d'un changement sur le composant (attributs / Input)
+  partGroupList: any;
+  partTypeList: any;
 
   ngOnChanges() {
     if(this.modelId!=0) {
@@ -42,10 +44,17 @@ export class ClientListPartComponent implements OnChanges, OnInit {
 
       console.log(this.partList);
     });
-
   }
 
   onGroupPartChange() {
-   this.clientService.getAllTypePartByGroupId(this.filterPartForm.get("groupPartSelect")?.value);
+   this.clientService.getAllTypePartByGroupId(this.filterPartForm.get("groupPartSelect")?.value).subscribe(result =>
+   {
+     this.partGroupList = result;
+     console.log("coucou encore :" + result);
+   });
+  }
+
+  OnTypePartChange() {
+
   }
 }

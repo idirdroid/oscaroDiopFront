@@ -1,32 +1,33 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {HttpClient, HttpClientModule} from "@angular/common/http";
 import {Brand} from "./brand";
 import {Model} from "./model";
 import {Observable} from "rxjs";
 import {Part} from "./part";
 import {PartType} from "./partType";
+
 @Injectable({
   providedIn: 'root'
 })
 export class ClientService {
-baseUrl='http://localhost:8080/admin/'
+  baseUrl = 'http://localhost:8080/admin/'
 
-  constructor(private http:HttpClient) { }
+  constructor(private http: HttpClient) {
+  }
 
-  getAllBrand():Observable<Brand[]> {
-    return this.http.get<Brand[]>(this.baseUrl+'brand');
+  getAllBrand(): Observable<Brand[]> {
+    return this.http.get<Brand[]>(this.baseUrl + 'brand');
   }
 
   getModelByBrand(idBrand: number): Observable<Model[]> {
-    return this.http.get<Model[]>(this.baseUrl+'models/' + idBrand);
+    return this.http.get<Model[]>(this.baseUrl + 'models/' + idBrand);
   }
 
   getAllPartByModelId(modelId: number) {
-    return this.http.get< Part[]>(this.baseUrl+'parts/getPartsByModel/'+modelId)
+    return this.http.get<Part[]>(this.baseUrl + 'parts/getPartsByModel/' + modelId)
   }
 
-
-  getAllTypePartByGroupId(value: any) {
-  //return this.http.get <PartType []>(this.baseUrl)
+  getAllTypePartByGroupId(groupId: number) {
+    return this.http.get <PartType []>(this.baseUrl + 'parttype/' + groupId)
   }
 }

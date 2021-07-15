@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./client.component.css']
 })
 export class ClientComponent implements OnInit {
-  printList : boolean = false;
+  printList : boolean = true;
   constructor() { }
 
   ngOnInit(): void {

@@ -8,6 +8,7 @@ import { ClientListPartComponent } from './client-list-part/client-list-part.com
 import { ClientComponent } from './client/client.component';
 import {FormBuilder, ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
+import {CommonModule} from "@angular/common";
 
 @NgModule({
   declarations: [
@@ -21,7 +22,7 @@ import {HttpClientModule} from "@angular/common/http";
     HttpClientModule,
     BrowserModule,
     ReactiveFormsModule,
-
+CommonModule,
     RouterModule.forRoot([
       {path: '', component: ClientComponent},
       {path: 'clientlistpart', component: ClientListPartComponent}

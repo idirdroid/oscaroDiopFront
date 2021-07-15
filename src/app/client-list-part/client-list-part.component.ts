@@ -17,8 +17,10 @@ export class ClientListPartComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.getPartListByModel(1);
+    this.getPartListByModel(this.modelId);
   }
+
+
 
   public getPartListByModel(modelId: number) {
     this.clientService.getAllPartByModelId(modelId).subscribe(result => {

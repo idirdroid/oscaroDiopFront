@@ -70,7 +70,7 @@ export class ClientListPartComponent implements OnChanges, OnInit {
 
   OnTypePartChange() {
     //Mise à jour du tableau de pièces
-    console.log('Type de pièce: ' + this.filterPartForm.get('typePartSelect')?.value)
+    console.log( this.filterPartForm.get('typePartSelect')?.value)
     this.clientService.getPartListByModelByPartType(this.modelId, this.filterPartForm.get('typePartSelect')?.value).subscribe(result => {
       this.partList = result;
     });

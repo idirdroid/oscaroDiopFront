@@ -10,9 +10,9 @@
   </select>
 
   <!--  on recupére le modelId avec "modelSelect.value" dans le composant Enfant, la méthode selectedModelId Permet d'initier l'émission de la valeur-->
-  <select formeControlName="typePartSelect" (change)="OnTypePartChange()" >
+  <select formControlName="typePartSelect" (change)="OnTypePartChange()" >
     <option value="0">-- Choisir un type de Pièce --</option>
-    <option *ngFor="let partType of partTypeList" value="{{partType.id}}">{{partType.name | uppercase}}</option>
+    <option *ngFor="let partType of partTypeList" value="{{partType.id}}">{{partType.id}} - {{partType.name | uppercase}}</option>
   </select>
 </form>
 

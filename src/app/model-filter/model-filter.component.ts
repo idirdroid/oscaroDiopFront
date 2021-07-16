@@ -44,7 +44,10 @@ export class ModelFilterComponent implements OnInit {
       this.clientService.getModelByBrand(this.filterForm.get('brandSelect')?.value).subscribe(result => {
         this.modelList = result;
       });
-      console.log("coucou : "+ this.filterForm.get('brandSelect')?.value)
+      //on initialise la value du model select à 0
+      //on passe la valeur du modelId(this.filterForm.get('modelSelect')?.value) au parent
+      this.newModelIdEvent.emit(Number(this.filterForm.get('modelSelect')?.value));
+      console.log("coucou : "+ this.filterForm.get('modelSelect')?.value)
     }
 
   }

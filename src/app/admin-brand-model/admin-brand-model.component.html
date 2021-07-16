@@ -1,0 +1,22 @@
+<p> Marques </p>
+<table>
+  <thead>
+  <tr>
+    <th>Identifiant </th>
+    <th>Date de Mise A jour</th>
+    <th>Name</th>
+    <th>Disable</th>
+
+  </tr>
+  </thead>
+
+  <tbody>
+  <tr *ngFor="let brand of brandList">
+    <td>{{brand.id}}</td>
+    <td>{{brand.addDate | date: "dd/MM/YYYY"}}</td>
+    <td>{{brand.name}}</td>
+    <td><button>Disable</button></td>
+  </tr>
+  </tbody>
+
+</table>

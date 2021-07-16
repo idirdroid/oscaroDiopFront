@@ -9,6 +9,8 @@ import { ClientComponent } from './client/client.component';
 import {FormBuilder, ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import {CommonModule} from "@angular/common";
+import { AdminComponent } from './admin/admin.component';
+import { AdminBrandModelComponent } from './admin-brand-model/admin-brand-model.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +18,8 @@ import {CommonModule} from "@angular/common";
     ModelFilterComponent,
     ClientListPartComponent,
     ClientComponent,
+    AdminComponent,
+    AdminBrandModelComponent,
 
   ],
   imports: [
@@ -25,7 +29,8 @@ import {CommonModule} from "@angular/common";
 CommonModule,
     RouterModule.forRoot([
       {path: '', component: ClientComponent},
-      {path: 'clientlistpart', component: ClientListPartComponent}
+      {path: 'clientlistpart', component: ClientListPartComponent},
+      {path: 'adminlistpart', component: AdminComponent}
       ])
   ],
   providers: [],

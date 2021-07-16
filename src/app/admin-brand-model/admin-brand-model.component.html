@@ -1,4 +1,11 @@
 <p> Marques </p>
+
+<form [formGroup]="addBrandForm" (ngSubmit)="addBrand()">
+  <label for="name">Nom :</label>
+  <input  id="name" type="text" required formControlName="formName">
+  <button type="submit"> Ajouter </button>
+</form>
+
 <table>
   <thead>
   <tr>

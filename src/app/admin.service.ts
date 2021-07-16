@@ -11,7 +11,7 @@ export class AdminService {
   constructor(private http: HttpClient) { }
 
   createBrand(brand: Brand){
-    this.http.post(this.baseUrl + 'admin/brand/', brand)
+    this.http.post(this.baseUrl + 'brand/', brand)
   }
 
 

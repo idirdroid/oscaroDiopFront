@@ -1,7 +1,7 @@
 export interface Brand{
-  id: number;
-  name: string;
-  addDate: Date;
-  disable: boolean;
+  id?: number;
+  name?: string;
+  addDate?: Date;
+  disable?: boolean;
 
 }

@@ -2,6 +2,8 @@ import {Component, Input, OnInit, OnChanges} from '@angular/core';
 import {ClientService} from "../client.service";
 import {Part} from "../part";
 import {FormBuilder} from "@angular/forms";
+import {PartGroup} from "../partGroup";
+import {PartType} from "../partType";
 
 
 @Component({
@@ -12,13 +14,20 @@ import {FormBuilder} from "@angular/forms";
 export class ClientListPartComponent implements OnChanges, OnInit {
   partList: Part[] = [];
 
-  constructor(private clientService: ClientService, private formBuilder: FormBuilder) {
+  partGroupList: PartGroup[] = [];
+  partTypeList: PartType[] = [];
+
+  constructor(private clientService: ClientService,
+              private formBuilder: FormBuilder) {
   }
 
   @Input() modelId: number = 0;
 
   ngOnInit(): void {
-    //this.getPartListByModel(this.modelId);
+    this.clientService.getAllGroupPart().subscribe(result => {
+      this.partGroupList = result;
+      console.log(result);
+  });
   }
 
   filterPartForm=this.formBuilder.group({
@@ -27,13 +36,15 @@ export class ClientListPartComponent implements OnChanges, OnInit {
   });
 
   //Déclanchée lors d'un changement sur le composant (attributs / Input)
-  partGroupList: any;
-  partTypeList: any;
+
 
   ngOnChanges() {
     if(this.modelId!=0) {
       this.getPartListByModel(this.modelId);
       console.log("je rentre dans les parts");
+    }
+    if(this.filterPartForm.get('typePartSelect')?.value != 0 && this.modelId!=0){
+      this.getPartListByModelByPartType(this.modelId, this.filterPartForm.get('typePartSelect')?.value);
     }
   }
 
@@ -47,14 +58,29 @@ export class ClientListPartComponent implements OnChanges, OnInit {
   }
 
   onGroupPartChange() {
-   this.clientService.getAllTypePartByGroupId(this.filterPartForm.get("groupPartSelect")?.value).subscribe(result =>
+    console.log('Id du group Part: ' + this.filterPartForm.get('groupPartSelect')?.value)
+   this.clientService.getAllTypePartByGroupId(this.filterPartForm.get('groupPartSelect')?.value).subscribe(result =>
    {
-     this.partGroupList = result;
-     console.log("coucou encore :" + result);
+     this.partTypeList = result;
+     console.log(result);
+     console.log(this.partTypeList)
    });
+    //Mettre à jour le tableau
   }
 
   OnTypePartChange() {
+    //Mise à jour du tableau de pièces
+    console.log('Type de pièce: ' + this.filterPartForm.get('typePartSelect')?.value)
+    this.clientService.getPartListByModelByPartType(this.modelId, this.filterPartForm.get('typePartSelect')?.value).subscribe(result => {
+      this.partList = result;
+    });
+  }
+
+  getPartListByModelByPartType(modelId: number, partTypeId: number) {
+    this.clientService.getPartListByModelByPartType(modelId, partTypeId).subscribe(result => {
+      this.partList = result;
+    })
 
   }
+
 }

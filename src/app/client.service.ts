@@ -5,6 +5,7 @@ import {Model} from "./model";
 import {Observable} from "rxjs";
 import {Part} from "./part";
 import {PartType} from "./partType";
+import {PartGroup} from "./partGroup";
 
 @Injectable({
   providedIn: 'root'
@@ -28,6 +29,15 @@ export class ClientService {
   }
 
   getAllTypePartByGroupId(groupId: number) {
+    console.log('Execution de l\'appel API')
     return this.http.get <PartType []>(this.baseUrl + 'parttype/' + groupId)
+  }
+
+  getAllGroupPart() {
+    return this.http.get<PartGroup[]>(this.baseUrl + 'partgroup');
+  }
+
+  getPartListByModelByPartType(modelId: number, partTypeId: number) {
+return this.http.get<Part[]>(this.baseUrl + 'parts/getPartsByModelByPartType/' + modelId + '/' + partTypeId)
   }
 }

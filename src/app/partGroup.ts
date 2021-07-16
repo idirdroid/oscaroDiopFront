@@ -1,6 +1,4 @@
-export interface partGroup{
+export interface PartGroup{
   id: number;
-
   name: string;
-
 }

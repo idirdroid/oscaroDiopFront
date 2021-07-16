@@ -7,13 +7,12 @@
     <!--    on value O pour qu'il affiche la premiere valeur par défault-->
     <option value="0">-- Choisir une famille de pièce --</option>
     <option *ngFor="let partGroup of partGroupList" value="{{partGroup.id}}">{{partGroup.name | uppercase}}</option>
-    <option value="">texte</option>
   </select>
 
   <!--  on recupére le modelId avec "modelSelect.value" dans le composant Enfant, la méthode selectedModelId Permet d'initier l'émission de la valeur-->
   <select formeControlName="typePartSelect" (change)="OnTypePartChange()" >
     <option value="0">-- Choisir un type de Pièce --</option>
-    <option *ngFor="let partType of partTypeList" value="{{partType.id}}">{{partType.name | uppercase}} </option>
+    <option *ngFor="let partType of partTypeList" value="{{partType.id}}">{{partType.name | uppercase}}</option>
   </select>
 </form>
 

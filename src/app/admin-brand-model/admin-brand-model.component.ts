@@ -12,7 +12,8 @@ import {Brand} from "../brand";
 export class AdminBrandModelComponent implements OnInit {
   brandList: any;
   addBrandForm = this.formBuilder.group({
-    formName: ''
+    id: 0,
+    name: ''
   });
 
 
@@ -27,13 +28,10 @@ export class AdminBrandModelComponent implements OnInit {
     })
   }
 
-  brand: Brand = {  addDate: '2021-07-16',
-    disable: true};
+  brand: Brand | undefined;
 
   addBrand() {
-    this.brand.name = this.addBrandForm.get('formName')?.value;
-    this.adminService.createBrand(this.brand);
-    console.log(this.brand);
-
+    this.brand = this.addBrandForm.value;
+    this.adminService.createBrand(this.brand).subscribe();
   }
 }

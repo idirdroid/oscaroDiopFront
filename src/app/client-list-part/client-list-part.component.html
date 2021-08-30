@@ -1,78 +1,78 @@
 <div class="col-md-6">
-<form [formGroup]="filterPartForm">
-  <div class="input-group centred">
-    <span class="input-group-addon" id="groupPartSelect">Famille</span>
-    <select
-      class="form-control"
-      formControlName="groupPartSelect"
-      (change)="onGroupPartChange()">
-      <!--    on value O pour qu'il affiche la premiere valeur par défault-->
-      <option value="0">-- Choisir une famille de pièce --</option>
-      <option *ngFor="let partGroup of partGroupList" value="{{partGroup.id}}">{{partGroup.name | uppercase}}</option>
-    </select>
-  </div>
+  <form [formGroup]="filterPartForm">
+    <div class="input-group centred">
+      <span class="input-group-addon" id="groupPartSelect">Famille</span>
+      <select
+        class="form-control"
+        formControlName="groupPartSelect"
+        (change)="onGroupPartChange()">
+        <!--    on value O pour qu'il affiche la premiere valeur par défault-->
+        <option value="0">-- Choisir une famille de pièce --</option>
+        <option *ngFor="let partGroup of partGroupList" value="{{partGroup.id}}">{{partGroup.name | uppercase}}</option>
+      </select>
+    </div>
 
-  <!--  on recupére le modelId avec "modelSelect.value" dans le composant Enfant, la méthode selectedModelId Permet d'initier l'émission de la valeur-->
-  <div class="input-group centred">
-    <span class="input-group-addon" id="typePartSelect">Type</span>
-    <select
-      class="form-control"
-      formControlName="typePartSelect"
-      (change)="OnTypePartChange()">
-      <option value="0">-- Choisir un type de Pièce --</option>
-      <option *ngFor="let partType of partTypeList" value="{{partType.id}}">{{partType.id}}
-        - {{partType.name | uppercase}}</option>
-    </select>
-  </div>
-</form>
+    <!--  on recupére le modelId avec "modelSelect.value" dans le composant Enfant, la méthode selectedModelId Permet d'initier l'émission de la valeur-->
+    <div class="input-group centred">
+      <span class="input-group-addon" id="typePartSelect">Type</span>
+      <select
+        class="form-control"
+        formControlName="typePartSelect"
+        (change)="OnTypePartChange()">
+        <option value="0">-- Choisir un type de Pièce --</option>
+        <option *ngFor="let partType of partTypeList" value="{{partType.id}}">{{partType.id}}
+          - {{partType.name | uppercase}}</option>
+      </select>
+    </div>
+  </form>
 </div>
 
 
 <div class="col-md-12">
-<table class="table table-striped withEspace"
-       *ngIf="!detailPiece">
-  <thead>
-  <tr>
-    <th>Date Ajout</th>
-    <th>Description</th>
-    <th>Prix public</th>
-    <th>Reference</th>
-    <th>Serial Number</th>
-    <th>Stock</th>
-    <th>Detail Piece</th>
-  </tr>
-  </thead>
+  <table class="table table-striped withEspace"
+         *ngIf="!detailPiece">
+    <thead>
+    <tr>
+      <th>Date Ajout</th>
+      <th>Description</th>
+      <th>Prix public</th>
+      <th>Reference</th>
+      <th>Serial Number</th>
+      <th>Stock</th>
+      <th>Detail Piece</th>
+    </tr>
+    </thead>
 
-  <tbody>
-  <tr *ngFor="let part of partList">
-    <td>{{part.addDate | date: "dd/MM/YYYY"}}</td>
-    <td>{{part.description}}</td>
-    <td>{{part.publicPrice}}</td>
-    <td>{{part.reference}}</td>
-    <td>{{part.serialNumber}}</td>
-    <td>{{part.stock}}</td>
-    <td><a (click)="partDetail(part.id)">
-      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-binoculars-fill"
-           viewBox="0 0 16 16">
-        <path
-          d="M4.5 1A1.5 1.5 0 0 0 3 2.5V3h4v-.5A1.5 1.5 0 0 0 5.5 1h-1zM7 4v1h2V4h4v.882a.5.5 0 0 0 .276.447l.895.447A1.5 1.5 0 0 1 15 7.118V13H9v-1.5a.5.5 0 0 1 .146-.354l.854-.853V9.5a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v.793l.854.853A.5.5 0 0 1 7 11.5V13H1V7.118a1.5 1.5 0 0 1 .83-1.342l.894-.447A.5.5 0 0 0 3 4.882V4h4zM1 14v.5A1.5 1.5 0 0 0 2.5 16h3A1.5 1.5 0 0 0 7 14.5V14H1zm8 0v.5a1.5 1.5 0 0 0 1.5 1.5h3a1.5 1.5 0 0 0 1.5-1.5V14H9zm4-11H9v-.5A1.5 1.5 0 0 1 10.5 1h1A1.5 1.5 0 0 1 13 2.5V3z"/>
-      </svg>
-      Detail</a></td>
-  </tr>
-  </tbody>
+    <tbody>
+    <tr *ngFor="let part of partList">
+      <td>{{part.addDate | date: "dd/MM/YYYY"}}</td>
+      <td>{{part.description}}</td>
+      <td>{{part.publicPrice}}</td>
+      <td>{{part.reference}}</td>
+      <td>{{part.serialNumber}}</td>
+      <td>{{part.stock}}</td>
+      <td><a (click)="partDetail(part.id)">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-binoculars-fill"
+             viewBox="0 0 16 16">
+          <path
+            d="M4.5 1A1.5 1.5 0 0 0 3 2.5V3h4v-.5A1.5 1.5 0 0 0 5.5 1h-1zM7 4v1h2V4h4v.882a.5.5 0 0 0 .276.447l.895.447A1.5 1.5 0 0 1 15 7.118V13H9v-1.5a.5.5 0 0 1 .146-.354l.854-.853V9.5a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v.793l.854.853A.5.5 0 0 1 7 11.5V13H1V7.118a1.5 1.5 0 0 1 .83-1.342l.894-.447A.5.5 0 0 0 3 4.882V4h4zM1 14v.5A1.5 1.5 0 0 0 2.5 16h3A1.5 1.5 0 0 0 7 14.5V14H1zm8 0v.5a1.5 1.5 0 0 0 1.5 1.5h3a1.5 1.5 0 0 0 1.5-1.5V14H9zm4-11H9v-.5A1.5 1.5 0 0 1 10.5 1h1A1.5 1.5 0 0 1 13 2.5V3z"/>
+        </svg>
+        Detail</a></td>
+    </tr>
+    </tbody>
 
-</table>
+  </table>
 
-<!--teste l'existence de l'object-->
-<ng-container *ngIf="detailPart">
-  <div *ngIf="detailPiece">
-    <p>Description : {{detailPart.description}}</p>
-    <p> Stocks: {{detailPart.stock}}</p>
-    <p> Prix: {{detailPart.publicPrice}}</p>
-    <p> Reference: {{detailPart.reference}}</p>
-    <p> SN: {{detailPart.serialNumber}}</p>
+  <!--teste l'existence de l'object-->
+  <ng-container *ngIf="detailPart">
+    <div *ngIf="detailPiece">
+      <p>Description : {{detailPart.description}}</p>
+      <p> Stocks: {{detailPart.stock}}</p>
+      <p> Prix: {{detailPart.publicPrice}}</p>
+      <p> Reference: {{detailPart.reference}}</p>
+      <p> SN: {{detailPart.serialNumber}}</p>
 
-    <button class="btn btn-primary mb-2" (click)="closeDetail()"> Fermer</button>
-  </div>
-</ng-container>
+      <button class="btn btn-primary mb-2" (click)="closeDetail()"> Fermer</button>
+    </div>
+  </ng-container>
 </div>

@@ -1,4 +1,5 @@
-<div class="col-md-6">
+<div class="centred">
+
   <form [formGroup]="filterPartForm">
     <div class="input-group centred">
       <span class="input-group-addon" id="groupPartSelect">Famille</span>
@@ -11,6 +12,7 @@
         <option *ngFor="let partGroup of partGroupList" value="{{partGroup.id}}">{{partGroup.name | uppercase}}</option>
       </select>
     </div>
+
 
     <!--  on recupére le modelId avec "modelSelect.value" dans le composant Enfant, la méthode selectedModelId Permet d'initier l'émission de la valeur-->
     <div class="input-group centred">
@@ -63,16 +65,22 @@
 
   </table>
 
-  <!--teste l'existence de l'object-->
-  <ng-container *ngIf="detailPart">
-    <div *ngIf="detailPiece">
-      <p>Description : {{detailPart.description}}</p>
-      <p> Stocks: {{detailPart.stock}}</p>
-      <p> Prix: {{detailPart.publicPrice}}</p>
-      <p> Reference: {{detailPart.reference}}</p>
-      <p> SN: {{detailPart.serialNumber}}</p>
+<!--teste l'existence de l'object-->
 
-      <button class="btn btn-primary mb-2" (click)="closeDetail()"> Fermer</button>
-    </div>
-  </ng-container>
+<div class="centred">
+    <ng-container *ngIf="detailPart">
+      <div *ngIf="detailPiece">
+        <h1> Reference: {{detailPart.reference}}</h1>
+        <p class="text-white bg-dark p-2 rounded">Description : {{detailPart.description}}</p>
+        <p> Stocks: {{detailPart.stock}}</p>
+        <p> Prix: {{detailPart.publicPrice}}</p>
+        <p> SN: {{detailPart.serialNumber}}</p>
+
+        <button class="btn btn-primary mb-2" (click)="closeDetail()"> Fermer</button>
+      </div>
+    </ng-container>
+
 </div>
+
+</div>
+

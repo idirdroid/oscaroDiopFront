@@ -39,6 +39,8 @@ export class ModelFilterComponent implements OnInit {
     });
   }
 
+
+
   onBrandChange() {
     if (this.filterForm.get('brandSelect')?.value != 0) {
       this.clientService.getModelByBrand(this.filterForm.get('brandSelect')?.value).subscribe(result => {

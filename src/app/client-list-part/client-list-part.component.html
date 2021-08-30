@@ -16,7 +16,8 @@
   </select>
 </form>
 
-<table>
+
+<table *ngIf="!detailPiece">
   <thead>
   <tr>
     <th>Date Ajout</th>
@@ -25,6 +26,7 @@
     <th>Reference</th>
     <th>Serial Number</th>
     <th>Stock</th>
+    <th>Detail Piece</th>
   </tr>
   </thead>
 
@@ -36,7 +38,21 @@
     <td>{{part.reference}}</td>
     <td>{{part.serialNumber}}</td>
     <td>{{part.stock}}</td>
+    <td><a (click)="partDetail(part.id)">🎾 Detail</a> </td>
   </tr>
   </tbody>
 
 </table>
+
+<!--teste l'existence de l'object-->
+<ng-container *ngIf="detailPart">
+<div *ngIf="detailPiece">
+  <p>Description : {{detailPart.description}}</p>
+  <p> Stocks: {{detailPart.stock}}</p>
+  <p> Prix: {{detailPart.publicPrice}}</p>
+  <p> Reference: {{detailPart.reference}}</p>
+  <p> SN: {{detailPart.serialNumber}}</p>
+
+  <button (click)="closeDetail()"> Fermer </button>
+</div>
+</ng-container>

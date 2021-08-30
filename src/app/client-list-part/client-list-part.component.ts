@@ -16,6 +16,8 @@ export class ClientListPartComponent implements OnChanges, OnInit {
 
   partGroupList: PartGroup[] = [];
   partTypeList: PartType[] = [];
+  detailPiece: boolean =false;
+  detailPart: any;
 
   constructor(private clientService: ClientService,
               private formBuilder: FormBuilder) {
@@ -35,7 +37,13 @@ export class ClientListPartComponent implements OnChanges, OnInit {
     typePartSelect:0
   });
 
+
+
+
+
   //Déclanchée lors d'un changement sur le composant (attributs / Input)
+
+
 
 
   ngOnChanges() {
@@ -62,15 +70,14 @@ export class ClientListPartComponent implements OnChanges, OnInit {
    this.clientService.getAllTypePartByGroupId(this.filterPartForm.get('groupPartSelect')?.value).subscribe(result =>
    {
      this.partTypeList = result;
-     console.log(result);
-     console.log(this.partTypeList)
+
    });
     //Mettre à jour le tableau
   }
 
   OnTypePartChange() {
     //Mise à jour du tableau de pièces
-    console.log( this.filterPartForm.get('typePartSelect')?.value)
+
     this.clientService.getPartListByModelByPartType(this.modelId, this.filterPartForm.get('typePartSelect')?.value).subscribe(result => {
       this.partList = result;
     });
@@ -83,4 +90,14 @@ export class ClientListPartComponent implements OnChanges, OnInit {
 
   }
 
+  partDetail(id: number){
+    this.detailPiece= true;
+    this.clientService.getPartById(id).subscribe(result => {
+      this.detailPart = result;
+    });
+  }
+
+  closeDetail() {
+    this.detailPiece= false;
+  }
 }

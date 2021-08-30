@@ -28,6 +28,8 @@ export class ClientService {
     return this.http.get<Part[]>(this.baseUrl + 'parts/getPartsByModel/' + modelId)
   }
 
+
+
   getAllTypePartByGroupId(groupId: number) {
     console.log('Execution de l\'appel API')
     return this.http.get <PartType []>(this.baseUrl + 'parttype/' + groupId)
@@ -39,5 +41,9 @@ export class ClientService {
 
   getPartListByModelByPartType(modelId: number, partTypeId: number) {
 return this.http.get<Part[]>(this.baseUrl + 'parts/getPartsByModelByPartType/' + modelId + '/' + partTypeId)
+  }
+
+  getPartById(id: number):Observable<Part> {
+    return this.http.get<Part>(this.baseUrl+'parts/'+id);
   }
 }

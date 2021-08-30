@@ -8,10 +8,10 @@
         <option value="0">-- Choisir une marque --</option>
         <option *ngFor="let brand of brandList" value="{{brand.id}}">{{brand.name | uppercase}}</option>
       </select>
-</div>
+    </div>
 
-      <!--  on recupére le modelId avec "modelSelect.value" dans le composant Enfant, la méthode selectedModelId Permet d'initier l'émission de la valeur-->
-      <div class="input-group centred">
+    <!--  on recupére le modelId avec "modelSelect.value" dans le composant Enfant, la méthode selectedModelId Permet d'initier l'émission de la valeur-->
+    <div class="input-group centred">
       <span class="input-group-addon" id="modelSelect">Model</span>
       <select class="form-control"
               formeControlName="modelSelect"
@@ -19,9 +19,9 @@
         <option value="0">-- Choisir un modèle --</option>
         <option *ngFor="let model of modelList" value="{{model.id}}">{{model.name | uppercase}} {{model.year}}</option>
       </select>
-      </div>
+    </div>
 
-</form>
+  </form>
 </div>
 
 

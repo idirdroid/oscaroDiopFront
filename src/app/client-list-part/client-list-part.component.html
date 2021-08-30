@@ -54,13 +54,13 @@
 
 <!--teste l'existence de l'object-->
 <ng-container *ngIf="detailPart">
-  <div *ngIf="detailPiece">
+  <div *ngIf="detailPiece" >
     <p>Description : {{detailPart.description}}</p>
     <p> Stocks: {{detailPart.stock}}</p>
     <p> Prix: {{detailPart.publicPrice}}</p>
     <p> Reference: {{detailPart.reference}}</p>
     <p> SN: {{detailPart.serialNumber}}</p>
 
-    <button (click)="closeDetail()"> Fermer</button>
+    <button class="btn btn-primary mb-2" (click)="closeDetail()"> Fermer</button>
   </div>
 </ng-container>

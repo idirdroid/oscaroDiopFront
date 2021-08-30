@@ -1,5 +1,6 @@
 
 <form [formGroup]="addBrandForm" (ngSubmit)="addBrand()">
+  <div class="withEspace">
   <input type="hidden" id="id" formControlName="id">
   <label for="name">Nom :</label>
   <input id="name" type="text" required formControlName="name">
@@ -7,6 +8,7 @@
           class="btn btn-success mb-2 btnAdd"
   > Ajouter une marque
   </button>
+  </div>
 </form>
 
 <table class="table table-striped">

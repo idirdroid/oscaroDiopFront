@@ -1,16 +1,18 @@
-<p> Marques </p>
 
 <form [formGroup]="addBrandForm" (ngSubmit)="addBrand()">
   <input type="hidden" id="id" formControlName="id">
   <label for="name">Nom :</label>
-  <input  id="name" type="text" required formControlName="name">
-  <button type="submit"> Ajouter </button>
+  <input id="name" type="text" required formControlName="name">
+  <button type="submit"
+          class="btn btn-success mb-2 btnAdd"
+  > Ajouter
+  </button>
 </form>
 
-<table>
+<table class="table table-striped">
   <thead>
   <tr>
-    <th>Identifiant </th>
+    <th>Identifiant</th>
     <th>Date de Mise A jour</th>
     <th>Name</th>
     <th>Disable</th>
@@ -23,7 +25,9 @@
     <td>{{brand.id}}</td>
     <td>{{brand.addDate | date: "dd/MM/YYYY"}}</td>
     <td>{{brand.name}}</td>
-    <td><button>Disable</button></td>
+    <td>
+      <button class="btn btn-primary mb-2">Disable</button>
+    </td>
   </tr>
   </tbody>
 

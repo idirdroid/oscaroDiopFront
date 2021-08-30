@@ -1,8 +1,6 @@
-<h2>Model Id récupéré : {{modelId}}</h2>
-
 <!--on recupere la valeur qui est dans la variable event-->
 <app-model-filter (newModelIdEvent)="initModelId($event)"></app-model-filter>
 
 <p *ngIf="printList">
-<app-client-list-part [modelId]="modelId"></app-client-list-part>
+  <app-client-list-part [modelId]="modelId"></app-client-list-part>
 </p>

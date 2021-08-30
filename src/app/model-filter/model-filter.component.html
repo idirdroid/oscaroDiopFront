@@ -1,13 +1,16 @@
-<button><a routerLink="/adminlistpart">Admin</a> </button>
+
 <form [formGroup]="filterForm">
-  <select formControlName="brandSelect" (change)="onBrandChange()">
-<!--    on value O pour qu'il affiche la premiere valeur par défault-->
+  <select class="form-control list-space centred"
+          formControlName="brandSelect" (change)="onBrandChange()">
+    <!--    on value O pour qu'il affiche la premiere valeur par défault-->
     <option value="0">-- Choisir une marque --</option>
     <option *ngFor="let brand of brandList" value="{{brand.id}}">{{brand.name | uppercase}}</option>
   </select>
 
-<!--  on recupére le modelId avec "modelSelect.value" dans le composant Enfant, la méthode selectedModelId Permet d'initier l'émission de la valeur-->
-  <select formeControlName="modelSelect" (change)="selectedModelId(modelSelect.value)" #modelSelect>
+  <!--  on recupére le modelId avec "modelSelect.value" dans le composant Enfant, la méthode selectedModelId Permet d'initier l'émission de la valeur-->
+  <select class="form-control list-space centred"
+          formeControlName="modelSelect"
+          (change)="selectedModelId(modelSelect.value)" #modelSelect>
     <option value="0">-- Choisir un modèle --</option>
     <option *ngFor="let model of modelList" value="{{model.id}}">{{model.name | uppercase}} {{model.year}}</option>
   </select>

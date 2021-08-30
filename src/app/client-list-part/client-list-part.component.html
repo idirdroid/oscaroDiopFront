@@ -4,22 +4,25 @@
 
 
 <form [formGroup]="filterPartForm">
-  <select formControlName="groupPartSelect" (change)="onGroupPartChange()">
+  <select
+    formControlName="groupPartSelect"
+    (change)="onGroupPartChange()">
     <!--    on value O pour qu'il affiche la premiere valeur par défault-->
     <option value="0">-- Choisir une famille de pièce --</option>
     <option *ngFor="let partGroup of partGroupList" value="{{partGroup.id}}">{{partGroup.name | uppercase}}</option>
   </select>
 
   <!--  on recupére le modelId avec "modelSelect.value" dans le composant Enfant, la méthode selectedModelId Permet d'initier l'émission de la valeur-->
-  <select formControlName="typePartSelect" (change)="OnTypePartChange()" >
+  <select formControlName="typePartSelect" (change)="OnTypePartChange()">
     <option value="0">-- Choisir un type de Pièce --</option>
-    <option *ngFor="let partType of partTypeList" value="{{partType.id}}">{{partType.id}} - {{partType.name | uppercase}}</option>
+    <option *ngFor="let partType of partTypeList" value="{{partType.id}}">{{partType.id}}
+      - {{partType.name | uppercase}}</option>
   </select>
 </form>
 
 
 <table class="table table-striped"
-  *ngIf="!detailPiece">
+       *ngIf="!detailPiece">
   <thead>
   <tr>
     <th>Date Ajout</th>
@@ -41,11 +44,12 @@
     <td>{{part.serialNumber}}</td>
     <td>{{part.stock}}</td>
     <td><a (click)="partDetail(part.id)">
-      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye-fill" viewBox="0 0 16 16">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye-fill"
+           viewBox="0 0 16 16">
         <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z"/>
         <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z"/>
       </svg>
-      Detail</a> </td>
+      Detail</a></td>
   </tr>
   </tbody>
 
@@ -53,13 +57,13 @@
 
 <!--teste l'existence de l'object-->
 <ng-container *ngIf="detailPart">
-<div *ngIf="detailPiece">
-  <p>Description : {{detailPart.description}}</p>
-  <p> Stocks: {{detailPart.stock}}</p>
-  <p> Prix: {{detailPart.publicPrice}}</p>
-  <p> Reference: {{detailPart.reference}}</p>
-  <p> SN: {{detailPart.serialNumber}}</p>
+  <div *ngIf="detailPiece">
+    <p>Description : {{detailPart.description}}</p>
+    <p> Stocks: {{detailPart.stock}}</p>
+    <p> Prix: {{detailPart.publicPrice}}</p>
+    <p> Reference: {{detailPart.reference}}</p>
+    <p> SN: {{detailPart.serialNumber}}</p>
 
-  <button (click)="closeDetail()"> Fermer </button>
-</div>
+    <button (click)="closeDetail()"> Fermer</button>
+  </div>
 </ng-container>

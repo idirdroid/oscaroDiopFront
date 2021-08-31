@@ -69,14 +69,14 @@
 
 <div class="centred">
     <ng-container *ngIf="detailPart">
-      <div *ngIf="detailPiece">
+      <div class="bordure" *ngIf="detailPiece">
         <h1> Reference: {{detailPart.reference}}</h1>
         <p class="text-white bg-dark p-2 rounded">Description : {{detailPart.description}}</p>
         <p> Stocks: {{detailPart.stock}}</p>
         <p> Prix: {{detailPart.publicPrice}}</p>
         <p> SN: {{detailPart.serialNumber}}</p>
 
-        <button class="btn btn-primary mb-2" (click)="closeDetail()"> Fermer</button>
+        <button class="btn btn-primary mb-2 btnCclose" (click)="closeDetail()"> Fermer</button>
       </div>
     </ng-container>
 

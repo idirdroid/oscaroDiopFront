@@ -32,6 +32,11 @@ export class AdminBrandModelComponent implements OnInit {
 
   addBrand() {
     this.brand = this.addBrandForm.value;
-    this.adminService.createBrand(this.brand).subscribe();
+    this.adminService.createBrand(this.brand).subscribe(() => {
+      this.clientService.getAllBrand().subscribe(result => {
+        this.brandList = result;
+      })
+    });
   }
+
 }

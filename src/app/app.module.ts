@@ -11,6 +11,7 @@ import {HttpClientModule} from "@angular/common/http";
 import {CommonModule} from "@angular/common";
 import {AdminComponent} from './admin/admin.component';
 import {AdminBrandModelComponent} from './admin-brand-model/admin-brand-model.component';
+import { AdminStockComponent } from './admin-stock/admin-stock.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import {AdminBrandModelComponent} from './admin-brand-model/admin-brand-model.co
     ClientComponent,
     AdminComponent,
     AdminBrandModelComponent,
+    AdminStockComponent,
 
   ],
   imports: [
@@ -30,7 +32,9 @@ import {AdminBrandModelComponent} from './admin-brand-model/admin-brand-model.co
     RouterModule.forRoot([
       {path: '', component: ClientComponent},
       {path: 'clientlistpart', component: ClientListPartComponent},
-      {path: 'adminlistpart', component: AdminComponent}
+      {path: 'admin/adminlistpart', component: AdminBrandModelComponent},
+      {path: 'admin/adminstock', component: AdminStockComponent},
+      {path: 'admin', component: AdminComponent}
     ])
   ],
   providers: [],

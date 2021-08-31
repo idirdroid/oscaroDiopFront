@@ -20,6 +20,9 @@ export class ClientService {
     return this.http.get<Brand[]>(this.baseUrl + 'brand');
   }
 
+  getNumberOfBrand(): Observable<number> {
+    return this.http.get<number>(this.baseUrl + 'brand/nbBrand');
+  }
   getModelByBrand(idBrand: number): Observable<Model[]> {
     return this.http.get<Model[]>(this.baseUrl + 'models/' + idBrand);
   }

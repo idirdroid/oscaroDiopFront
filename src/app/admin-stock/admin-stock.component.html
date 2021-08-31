@@ -1,4 +1,4 @@
-<h1>Gestion des stocks</h1>
+<h1>Gestion des Pièces</h1>
 
 
 <app-model-filter (newModelIdEvent)="initModelId($event)"></app-model-filter>
@@ -9,6 +9,8 @@
     <th scope="col">#</th>
     <th scope="col">Réf</th>
     <th scope="col">Description</th>
+    <th scope="col">Prix Public</th>
+    <th scope="col">Prix Négocié</th>
     <th scope="col">stock</th>
   </tr>
   </thead>
@@ -16,9 +18,11 @@
   <tr *ngFor="let part of parts; index as i">
     <th scope="row">{{ i + 1 }}</th>
     <td>
-      {{ part.reference }}
+      <input #referenceValue type="text" (change)="updateReference(referenceValue.value, part)" value="{{ part.reference }}">
     </td>
-    <td>{{ part.description}}</td>
+    <td><input #descriptionValue type="text" (change)="updateDescription(descriptionValue.value, part)" value="{{ part.description}}"></td>
+    <td><input #publicPriceValue type="text" (change)="updatePublicPrice(publicPriceValue.value, part)" value="{{ part.publicPrice }}"></td>
+    <td><input #privatePriceValue type="text" (change)="updatePrivatePrice(privatePriceValue.value, part)" value="{{ part.minimumPrice }}"></td>
     <td><input #stockValue type="text" (change)="updateStock(stockValue.value, part)" value="{{ part.stock }}"></td>
   </tr>
   </tbody>

@@ -50,7 +50,7 @@ export class ClientService {
   }
 
 
-  updatePartStock(part: Part) {
+  updatePartInfo(part: Part) {
     return this.http.put(this.baseUrl + 'parts/update/' + part.id, part);
   }
 
@@ -61,5 +61,9 @@ export class ClientService {
 
   getAlertStocks(){
     return this.http.get(this.baseUrl+'models/alertstock');
+  }
+
+  disableBrand(brand: Brand) {
+    return this.http.put(this.baseUrl + 'brand/disable/' + brand.id, brand);
   }
 }

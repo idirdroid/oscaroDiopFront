@@ -22,12 +22,32 @@ export class AdminStockComponent implements OnInit {
   updateStock(newStock: any, part: Part) {
     console.log('Update: ' + newStock);
     part.stock = newStock;
-    this.clientService.updatePartStock(part).subscribe();
+    this.clientService.updatePartInfo(part).subscribe();
   }
 
   initModelId($event: number) {
     this.clientService.getAllPartByModelId($event).subscribe(result => {
       this.parts = result;
     })
+  }
+
+  updateDescription(value: string, part: Part) {
+    part.description = value;
+    this.clientService.updatePartInfo(part).subscribe();
+  }
+
+  updateReference(value: string, part: Part) {
+    part.reference = value;
+    this.clientService.updatePartInfo(part).subscribe();
+  }
+
+  updatePublicPrice(value: any, part: Part) {
+    part.publicPrice = value;
+    this.clientService.updatePartInfo(part).subscribe();
+  }
+
+  updatePrivatePrice(value: any, part: Part) {
+    part.minimumPrice = value;
+    this.clientService.updatePartInfo(part).subscribe();
   }
 }

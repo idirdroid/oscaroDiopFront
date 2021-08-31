@@ -28,10 +28,12 @@ export class AdminBrandModelComponent implements OnInit {
     })
   }
 
-  brand: Brand | undefined;
+  brand: any;
 
   addBrand() {
     this.brand = this.addBrandForm.value;
+    this.brand.addDate = new Date();
+    console.log(this.brand.addDate);
     this.adminService.createBrand(this.brand).subscribe(() => {
       this.clientService.getAllBrand().subscribe(result => {
         this.brandList = result;
@@ -40,4 +42,17 @@ export class AdminBrandModelComponent implements OnInit {
     });
   }
 
+  disableBrand(brand: Brand) {
+    brand.disable = true;
+    this.clientService.disableBrand(brand).subscribe();
+    //let button = document.getElementById('btn_'+ brand.id);
+    // @ts-ignore
+    //button.className = "btn btn-disable mb-2"
+  }
+
+  enableBrand(brand: Brand) {
+    brand.disable = false;
+    this.clientService.disableBrand(brand).subscribe();
+
+  }
 }

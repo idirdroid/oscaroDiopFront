@@ -28,7 +28,8 @@
     <td>{{brand.addDate | date: "dd/MM/YYYY"}}</td>
     <td>{{brand.name}}</td>
     <td>
-      <button class="btn btn-primary mb-2">Disable</button>
+      <button *ngIf="brand.disable" class="btn btn-success mb-2" (click)="enableBrand(brand)" id="btn_{{ brand.id }}">Enable</button>
+      <button *ngIf="!brand.disable" class="btn btn-warning mb-2" (click)="disableBrand(brand)" id="btn_{{ brand.id }}">Disable</button>
     </td>
   </tr>
   </tbody>

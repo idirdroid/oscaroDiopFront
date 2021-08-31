@@ -32,7 +32,7 @@ import { AdminStockComponent } from './admin-stock/admin-stock.component';
     RouterModule.forRoot([
       {path: '', component: ClientComponent},
       {path: 'clientlistpart', component: ClientListPartComponent},
-      {path: 'admin/adminlistpart', component: AdminBrandModelComponent},
+      {path: 'admin/adminbrand', component: AdminBrandModelComponent},
       {path: 'admin/adminstock', component: AdminStockComponent},
       {path: 'admin', component: AdminComponent}
     ])

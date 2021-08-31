@@ -10,4 +10,5 @@ export interface Part{
   reference: string;
   serialNumber: string;
   stock: number;
+  model: Model;
  }

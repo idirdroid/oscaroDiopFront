@@ -15,9 +15,7 @@ export class AdminStockComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.clientService.getAllPartByModelId(1).subscribe(result => {
-      this.parts = result;
-    })
+
   }
 
 
@@ -25,5 +23,11 @@ export class AdminStockComponent implements OnInit {
     console.log('Update: ' + newStock);
     part.stock = newStock;
     this.clientService.updatePartStock(part).subscribe();
+  }
+
+  initModelId($event: number) {
+    this.clientService.getAllPartByModelId($event).subscribe(result => {
+      this.parts = result;
+    })
   }
 }

@@ -1,3 +1,5 @@
+import {Model} from "./model";
+
 export interface Part{
   id: number;
   addDate: Date;
@@ -8,4 +10,4 @@ export interface Part{
   reference: string;
   serialNumber: string;
   stock: number;
-}
+ }

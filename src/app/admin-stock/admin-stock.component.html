@@ -1,6 +1,3 @@
-<p>admin-stock works!</p>
-<<<<<<< HEAD
-
 <h1>Gestion des stocks</h1>
 
 
@@ -22,10 +19,8 @@
       {{ part.reference }}
     </td>
     <td>{{ part.description}}</td>
-    <td><input #stockValue type="text" (change)="updateStock(stockValue.value)" value="{{ part.stock }}"></td>
+    <td><input #stockValue type="text" (change)="updateStock(stockValue.value, part)" value="{{ part.stock }}"></td>
   </tr>
   </tbody>
 </table>
-=======
-<app-admin ></app-admin>
->>>>>>> acb6d449c4e34044239af3a6b3225a451ca606bf
+

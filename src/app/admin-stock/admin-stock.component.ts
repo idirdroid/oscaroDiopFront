@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {ClientService} from "../client.service";
 
 @Component({
   selector: 'app-admin-stock',
@@ -7,9 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminStockComponent implements OnInit {
 
-  constructor() { }
+  parts : any;
+
+  constructor(private clientService : ClientService) { }
 
   ngOnInit(): void {
+    this.clientService.getAllPartByModelId(1).subscribe(result => {
+      this.parts = result;
+    })
   }
 
+
+  updateStock(stock : any) {
+    console.log('Update: ' + stock);
+
+  }
 }

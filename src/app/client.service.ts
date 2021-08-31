@@ -45,6 +45,11 @@ export class ClientService {
     return this.http.get<Part[]>(this.baseUrl + 'parts/getPartsByModelByPartType/' + modelId + '/' + partTypeId)
   }
 
+
+  getPartListByModelByPartGroup(modelId: number, partGroupId: number) {
+    return this.http.get<Part[]>(this.baseUrl + 'parts/getPartsByModelByPartGroup/' + modelId + '/' + partGroupId)
+  }
+
   getPartById(id: number): Observable<Part> {
     return this.http.get<Part>(this.baseUrl + 'parts/' + id);
   }

@@ -73,6 +73,9 @@ export class ClientListPartComponent implements OnChanges, OnInit {
 
    });
     //Mettre à jour le tableau
+    this.clientService.getPartListByModelByPartGroup(this.modelId,this.filterPartForm.get('groupPartSelect')?.value).subscribe(
+      result => {
+        this.partList = result;})
   }
 
   OnTypePartChange() {

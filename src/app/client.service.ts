@@ -53,4 +53,13 @@ export class ClientService {
   updatePartStock(part: Part) {
     return this.http.put(this.baseUrl + 'parts/update/' + part.id, part);
   }
+
+
+  getNumberOfModel(){
+    return this.http.get(this.baseUrl+'models/nbModelByBrand');
+  }
+
+  getAlertStocks(){
+    return this.http.get(this.baseUrl+'models/alertstock');
+  }
 }

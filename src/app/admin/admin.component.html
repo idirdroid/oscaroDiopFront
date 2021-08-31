@@ -1,4 +1,53 @@
 
 <!-- Stats -->
-Affichage des stats
-<p>Nombre de Marques : {{nbBrand}}</p>
+<h1>Statistique</h1>
+<h3>Nombre de Marques : {{nbBrand}}</h3>
+<h3>Nombre de Models par Marque</h3>
+
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th scope="col">#</th>
+    <th scope="col">Marque</th>
+    <th scope="col">Nombre</th>
+
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let model of nbModel; index as i">
+    <th scope="row">{{ i + 1 }}</th>
+    <td>
+      {{ model[0] }}
+    </td>
+    <td>{{ model[1]}}</td>
+
+  </tr>
+  </tbody>
+</table>
+
+<h3>Models et Marque avec un stock vide</h3>
+
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th scope="col">#</th>
+    <th scope="col">Marque</th>
+    <th scope="col">Model</th>
+    <th scope="col">Piece</th>
+    <th scope="col">stock</th>
+
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let part of alertPartStock; index as i">
+    <td scope="row">{{ i + 1 }}</td>
+    <td>
+      {{ part[0] }}
+    </td>
+    <td>{{ part[1]}}</td>
+    <td>{{ part[2]}}</td>
+    <td>{{ part[3]}}</td>
+
+  </tr>
+  </tbody>
+</table>

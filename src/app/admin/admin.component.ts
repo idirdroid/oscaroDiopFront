@@ -8,14 +8,23 @@ import {ClientService} from "../client.service";
 })
 export class AdminComponent implements OnInit {
   nbBrand: any;
+  nbModel:any;
+  alertPartStock:any;
 
   constructor(private clientService: ClientService) { }
 
   ngOnInit(): void {
-    this.nbBrand=this.clientService.getNumberOfBrand().subscribe(result => {
+    this.clientService.getNumberOfBrand().subscribe(result => {
       this.nbBrand=result;
     });
     console.log(this.nbBrand);
+    this.clientService.getNumberOfModel().subscribe(result => {
+      this.nbModel=result;
+    });
+
+    this.clientService.getAlertStocks().subscribe(result=>{
+      this.alertPartStock=result;
+    })
   }
 
   initModelId($event: number) {

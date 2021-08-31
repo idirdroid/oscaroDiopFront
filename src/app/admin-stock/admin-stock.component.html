@@ -18,12 +18,12 @@
   <tr *ngFor="let part of parts; index as i">
     <th scope="row">{{ i + 1 }}</th>
     <td>
-      <input #referenceValue type="text" (change)="updateReference(referenceValue.value, part)" value="{{ part.reference }}">
+      <input #referenceValue class="form-control" type="text" (change)="updateReference(referenceValue.value, part)" value="{{ part.reference }}">
     </td>
-    <td><input #descriptionValue type="text" (change)="updateDescription(descriptionValue.value, part)" value="{{ part.description}}"></td>
-    <td><input #publicPriceValue type="text" (change)="updatePublicPrice(publicPriceValue.value, part)" value="{{ part.publicPrice }}"></td>
-    <td><input #privatePriceValue type="text" (change)="updatePrivatePrice(privatePriceValue.value, part)" value="{{ part.minimumPrice }}"></td>
-    <td><input #stockValue type="text" (change)="updateStock(stockValue.value, part)" value="{{ part.stock }}"></td>
+    <td><input class="form-control" #descriptionValue type="text" (change)="updateDescription(descriptionValue.value, part)" value="{{ part.description}}"></td>
+    <td><input #publicPriceValue class="form-control" type="text" (change)="updatePublicPrice(publicPriceValue.value, part)" value="{{ part.publicPrice }}"></td>
+    <td><input #privatePriceValue class="form-control" type="text" (change)="updatePrivatePrice(privatePriceValue.value, part)" value="{{ part.minimumPrice }}"></td>
+    <td><input #stockValue class="form-control" type="text" (change)="updateStock(stockValue.value, part)" value="{{ part.stock }}"></td>
   </tr>
   </tbody>
 </table>

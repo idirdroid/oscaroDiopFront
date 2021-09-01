@@ -30,6 +30,8 @@ export class ClientListPartComponent implements OnChanges, OnInit {
       this.partGroupList = result;
       console.log(result);
   });
+
+
   }
 
   filterPartForm=this.formBuilder.group({

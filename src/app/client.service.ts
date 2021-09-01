@@ -66,4 +66,5 @@ export class ClientService {
   disableBrand(brand: Brand) {
     return this.http.put(this.baseUrl + 'brand/disable/' + brand.id, brand);
   }
+
 }

@@ -40,13 +40,13 @@ export class ModelFilterComponent implements OnInit {
   }
 
 
-
+//cette fonction génère la liste des modéles à partir de la Marque sélectionnée
   onBrandChange() {
     if (this.filterForm.get('brandSelect')?.value != 0) {
       this.clientService.getModelByBrand(this.filterForm.get('brandSelect')?.value).subscribe(result => {
         this.modelList = result;
       });
-      //on initialise la value du model select à 0
+
       //on passe la valeur du modelId(this.filterForm.get('modelSelect')?.value) au parent
       this.newModelIdEvent.emit(Number(this.filterForm.get('modelSelect')?.value));
       console.log("coucou : "+ this.filterForm.get('modelSelect')?.value)

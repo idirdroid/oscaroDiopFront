@@ -1,6 +1,8 @@
-<!--on recupere la valeur qui est dans la variable event-->
+<!--on recupere la valeur qui est dans la variable event -->
 <app-model-filter (newModelIdEvent)="initModelId($event)"></app-model-filter>
 
+<!--On affiche la liste seulement si un modèle est séléctionné
+On initialise une variable ModelId -->
 <p *ngIf="printList">
   <app-client-list-part [modelId]="modelId"></app-client-list-part>
 </p>

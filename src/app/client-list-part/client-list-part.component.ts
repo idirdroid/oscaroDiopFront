@@ -16,7 +16,7 @@ export class ClientListPartComponent implements OnChanges, OnInit {
 
   partGroupList: PartGroup[] = [];
   partTypeList: PartType[] = [];
-  detailPiece: boolean =false;
+  detailPiece: boolean = false;
   detailPart: any;
 
   constructor(private clientService: ClientService,
@@ -29,31 +29,21 @@ export class ClientListPartComponent implements OnChanges, OnInit {
     this.clientService.getAllGroupPart().subscribe(result => {
       this.partGroupList = result;
       console.log(result);
-  });
-
-
+    });
   }
 
-  filterPartForm=this.formBuilder.group({
-    groupPartSelect:0,
-    typePartSelect:0
+  filterPartForm = this.formBuilder.group({
+    groupPartSelect: 0,
+    typePartSelect: 0
   });
 
 
-
-
-
-  //Déclanchée lors d'un changement sur le composant (attributs / Input)
-
-
-
-
+  //Déclanchée lors d'un changement sur le composant (attributs / Input) - La valeur de la variable ModelId
   ngOnChanges() {
-    if(this.modelId!=0) {
+    if (this.modelId != 0) {
       this.getPartListByModel(this.modelId);
-      console.log("je rentre dans les parts");
     }
-    if(this.filterPartForm.get('typePartSelect')?.value != 0 && this.modelId!=0){
+    if (this.filterPartForm.get('typePartSelect')?.value != 0 && this.modelId != 0) {
       this.getPartListByModelByPartType(this.modelId, this.filterPartForm.get('typePartSelect')?.value);
     }
   }
@@ -69,15 +59,15 @@ export class ClientListPartComponent implements OnChanges, OnInit {
 
   onGroupPartChange() {
     console.log('Id du group Part: ' + this.filterPartForm.get('groupPartSelect')?.value)
-   this.clientService.getAllTypePartByGroupId(this.filterPartForm.get('groupPartSelect')?.value).subscribe(result =>
-   {
-     this.partTypeList = result;
+    this.clientService.getAllTypePartByGroupId(this.filterPartForm.get('groupPartSelect')?.value).subscribe(result => {
+      this.partTypeList = result;
 
-   });
+    });
     //Mettre à jour le tableau
-    this.clientService.getPartListByModelByPartGroup(this.modelId,this.filterPartForm.get('groupPartSelect')?.value).subscribe(
+    this.clientService.getPartListByModelByPartGroup(this.modelId, this.filterPartForm.get('groupPartSelect')?.value).subscribe(
       result => {
-        this.partList = result;})
+        this.partList = result;
+      })
   }
 
   OnTypePartChange() {
@@ -94,14 +84,14 @@ export class ClientListPartComponent implements OnChanges, OnInit {
 
   }
 
-  partDetail(id: number){
-    this.detailPiece= true;
+  partDetail(id: number) {
+    this.detailPiece = true;
     this.clientService.getPartById(id).subscribe(result => {
       this.detailPart = result;
     });
   }
 
   closeDetail() {
-    this.detailPiece= false;
+    this.detailPiece = false;
   }
 }

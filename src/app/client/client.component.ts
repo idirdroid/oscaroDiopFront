@@ -11,7 +11,7 @@ export class ClientComponent implements OnInit, OnChanges {
   constructor() {
   }
 
-  //declaration et initialisation;
+  //declaration et initialisation du modelId;
   modelId: number = 0;
 
   //methode qui s'execute quand l'evenement arrive
@@ -21,7 +21,7 @@ export class ClientComponent implements OnInit, OnChanges {
     if (this.modelId != 0) { //on affiche la liste dès qu'on recupére un model Id donc dès que Model est selectionné
       this.printList = true;
       console.log(this.printList);
-    } else
+    } else //Sinon la liste des pièces ne s'affiche pas
       this.printList = false;
   }
 

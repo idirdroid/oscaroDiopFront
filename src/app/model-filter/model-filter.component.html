@@ -4,7 +4,7 @@
       <span class="input-group-addon" id="brandSelect">Marque</span>
       <select class="form-control"
               formControlName="brandSelect" (change)="onBrandChange()">
-        <!--    on value O pour qu'il affiche la premiere valeur par défault-->
+        <!--    on set une value O pour qu'il affiche la premiere valeur par défault -->
         <option value="0">-- Choisir une marque --</option>
         <option *ngFor="let brand of brandList" value="{{brand.id}}">{{brand.name | uppercase}}</option>
       </select>
